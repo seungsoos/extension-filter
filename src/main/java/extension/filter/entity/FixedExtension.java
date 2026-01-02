@@ -1,5 +1,7 @@
 package extension.filter.entity;
 
+import extension.filter.common.exception.BizException;
+import extension.filter.common.result.Result;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -30,6 +32,9 @@ public class FixedExtension extends BaseEntity {
     }
 
     public void updateChecked(Boolean checked) {
+        if (checked == null) {
+            throw new BizException(Result.BAD_REQUEST, "checked 값은 null일 수 없습니다");
+        }
         this.isChecked = checked;
     }
 }
