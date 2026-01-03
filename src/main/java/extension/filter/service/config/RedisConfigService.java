@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 @Slf4j
 @Service
 @RequiredArgsConstructor
-public class ConfigService {
+public class RedisConfigService {
 
     private final RedisTemplate<String, Object> redisTemplate;
 

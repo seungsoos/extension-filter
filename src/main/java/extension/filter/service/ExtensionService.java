@@ -9,7 +9,7 @@ import extension.filter.entity.CustomExtension;
 import extension.filter.entity.FixedExtension;
 import extension.filter.repository.CustomExtensionRepository;
 import extension.filter.repository.FixedExtensionRepository;
-import extension.filter.service.config.ConfigService;
+import extension.filter.service.config.RedisConfigService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -25,7 +25,7 @@ public class ExtensionService {
 
     private final FixedExtensionRepository fixedExtensionRepository;
     private final CustomExtensionRepository customExtensionRepository;
-    private final ConfigService configService;
+    private final RedisConfigService redisConfigService;
 
     @Transactional(readOnly = true)
     public List<FixedExtensionResponse> getAllFixedExtensions() {
@@ -59,7 +59,7 @@ public class ExtensionService {
             throw new BizException(Result.DUPLICATE, "이미 존재하는 확장자입니다: " + extension);
         }
 
-        Integer maxCustomExtensions = configService.getMaxCustomExtensions();
+        Integer maxCustomExtensions = redisConfigService.getMaxCustomExtensions();
         long count = customExtensionRepository.countBy();
         if (count >= maxCustomExtensions) {
             throw new BizException(Result.LIMIT_EXCEEDED, "커스텀 확장자는 최대 " + maxCustomExtensions + "개까지 추가 가능합니다");
