@@ -2,7 +2,6 @@ package extension.filter.common.exception;
 
 import extension.filter.common.response.CommonResponse;
 import extension.filter.common.result.Result;
-import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.validation.FieldError;
 import org.springframework.validation.ObjectError;
@@ -15,7 +14,6 @@ import java.util.List;
 
 @Slf4j
 @RestControllerAdvice
-@RequiredArgsConstructor
 public class ApiExceptionHandler {
 
     @ExceptionHandler(value = Exception.class)
