@@ -13,7 +13,7 @@ export default defineConfig({
     }
   },
   build: {
-    outDir: '../src/main/resources/static',
+    outDir: process.env.VITE_BUILD_DIR || 'dist',
     emptyOutDir: true
   }
 })
