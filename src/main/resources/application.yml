@@ -33,7 +33,7 @@ spring:
   datasource:
     url: jdbc:mysql://mysql.railway.internal:3306/railway?createDatabaseIfNotExist=true&serverTimezone=Asia/Seoul
     username: root
-    password: mNQMJvlJfmjZhzPjagPCAXvxMslqgizY
+    password: exCsIhPWDAuCLvHDzEdtRKiNuwVRxGjs
     driver-class-name: com.mysql.cj.jdbc.Driver
     hikari:
       maximum-pool-size: 5
@@ -50,7 +50,7 @@ spring:
     redis:
       host: redis.railway.internal
       port: 6379
-      password: TCODmNZlqJcvETcxoZzpAgPKDOXOEFJF
+      password: PesmqqzUCTkMuAziRukFTyLYLJoQCDDr
 
 server:
   port: 8080
