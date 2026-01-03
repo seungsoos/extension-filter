@@ -23,7 +23,7 @@ server:
   port: 8080
 
 ---
-# Production Profile
+# Production Profile (Railway)
 spring:
   config:
     activate:
@@ -31,10 +31,9 @@ spring:
   application:
     name: extension-filter
   datasource:
-    # 배포 환경의 MySQL 주소로 변경하세요
-    url: jdbc:mysql://localhost:3306/extension_filter?createDatabaseIfNotExist=true&serverTimezone=Asia/Seoul
+    url: jdbc:mysql://mysql.railway.internal:3306/railway?createDatabaseIfNotExist=true&serverTimezone=Asia/Seoul
     username: root
-    password: root1234
+    password: mNQMJvlJfmjZhzPjagPCAXvxMslqgizY
     driver-class-name: com.mysql.cj.jdbc.Driver
     hikari:
       maximum-pool-size: 5
@@ -49,10 +48,9 @@ spring:
         dialect: org.hibernate.dialect.MySQLDialect
   data:
     redis:
-      # 배포 환경의 Redis 주소로 변경하세요
-      host: localhost
+      host: redis.railway.internal
       port: 6379
-      password:
+      password: TCODmNZlqJcvETcxoZzpAgPKDOXOEFJF
 
 server:
   port: 8080
