@@ -54,4 +54,4 @@ HEALTHCHECK --interval=30s --timeout=3s --start-period=40s --retries=3 \
   CMD wget --no-verbose --tries=1 --spider http://localhost:8080/actuator/health || exit 1
 
 # Run the application
-CMD ["sh", "-c", "java -Dspring.profiles.active=prod -Dspring.datasource.url=${DATABASE_URL} -Dspring.datasource.username=${DATABASE_USERNAME} -Dspring.datasource.password=${DATABASE_PASSWORD} -Dspring.data.redis.host=${REDIS_HOST} -Dspring.data.redis.port=${REDIS_PORT} -Dspring.data.redis.password=${REDIS_PASSWORD} -jar app.jar"]
+CMD ["java", "-Dspring.profiles.active=prod", "-jar", "app.jar"]
